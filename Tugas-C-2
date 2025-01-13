@@ -1,0 +1,309 @@
+Latihan Fungsi
+
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+int penjumlahan(int a = 2, int b = 3)
+{
+    int hasil;
+    hasil = a + b ;
+    return hasil;
+}
+
+int pengurangan(int a = 2, int b = 3) {
+    int hasil;
+    hasil = a - b ;
+    return hasil;
+}
+
+int perkalian(int a = 2, int b = 3) {
+    int hasil;
+    hasil = a * b ;
+    return hasil;
+}
+
+float pembagian(int a = 2, int b = 3) {
+    float hasil;
+    if (b != 0) {
+        hasil = a / b ;
+    } else {
+        cout << "Pembagian dengan nol tidak diperbolehkan!" << endl;
+    }
+    return hasil;
+}
+
+float modulus1(int a, int b) {
+    float hasil;
+    if (b != 0) {
+        hasil = a % b;
+    } else {
+        cout << "Modulus dengan nol tidak diperbolehkan!" << endl;
+    }
+    return hasil;
+}
+
+int main() {
+    int choice, num1, num2;
+    string menu;
+    string ulang;
+
+    cout<<"------------------------------------"<< endl;
+    cout<<"| Dedi Situmorang |"<< endl;
+    cout<<"| Bogor           |"<< endl;
+    cout<<"------------------------------------"<< endl;
+    
+    while (true) {
+        cout << "Masukkan Menu(+|-|/|*|%|stop): ";
+        cin >> menu;
+
+        if (menu == "+") {
+            cout << "Masukkan angka pertama: ";
+            cin >> num1;
+            cout << "Masukkan angka kedua: ";
+            cin >> num2;
+            cout << "Hasil Penjumlahan :" 
+            << penjumlahan(num1, num2) << endl;
+        } else if (menu == "-") {
+            cout << "Masukkan angka pertama: ";
+            cin >> num1;
+            cout << "Masukkan angka kedua: ";
+            cin >> num2;
+            cout << "Hasil Pengurangan :" 
+            << pengurangan(num1, num2) << endl;
+        } else if (menu == "*") {
+            cout << "Masukkan angka pertama: ";
+            cin >> num1;
+            cout << "Masukkan angka kedua: ";
+            cin >> num2;
+            cout << "Hasil Perkalian :" 
+            << perkalian(num1, num2) << endl;
+        } else if (menu == "/") {
+            cout << "Masukkan angka pertama: ";
+            cin >> num1;
+            cout << "Masukkan angka kedua: ";
+            cin >> num2;
+            cout << "Hasil Pembagian :"
+            << pembagian(num1, num2) << endl;
+        } else if (menu == "%") {
+            cout << "Masukkan angka pertama: ";
+            cin >> num1;
+            cout << "Masukkan angka kedua: ";
+            cin >> num2;
+            cout << "Hasil Modulus :"
+            << modulus1(num1, num2) << endl;
+        } else if (menu == "stop") {
+            cout << "Program Berhenti, Terima Kasih telah menggunakan program saya."<< endl;
+            break;
+        } 
+        else {
+            cout << "Pilihan tidak valid!"<< endl;
+        }
+
+    }
+
+    return 0;
+}
+
+
+Latihan Class & Object 1
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Mahasiswa {
+private:
+    string nama;
+    int umur;
+    string jurusan;
+    string nim;
+
+public:
+    Mahasiswa(string n, int u, string j, string ni) {
+        nama = n;
+        umur = u;
+        jurusan = j;
+        nim = ni;
+    }
+
+    void tampilkanBiodata() {
+        cout << "Nama: " << nama << endl;
+        cout << "Umur: " << umur << endl;
+        cout << "Jurusan: " << jurusan << endl;
+        cout << "NIM: " << nim << endl;
+    }
+};
+
+int main() {
+    string nama;
+    int umur;
+    string jurusan;
+    string nim;
+
+    cout << "Masukkan Nama: ";
+    cin >> nama;
+    cout << "Masukkan Umur: ";
+    cin >> umur;
+    cout << "Masukkan Jurusan: ";
+    cin >> jurusan;
+    cout << "Masukkan NIM: ";
+    cin >> nim;
+
+    Mahasiswa mhs(nama, umur, jurusan, nim);
+
+    cout << "\nBiodata Mahasiswa:\n";
+    mhs.tampilkanBiodata();
+
+    return 0;
+}
+
+Latihan Class & Object 2
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Mahasiswa {
+private:
+    string nama;
+    int umur;
+    string jurusan;
+    string nim;
+
+public:
+    Mahasiswa(string n = "", int u = 0, string j = "", string ni = "") {
+        nama = n;
+        umur = u;
+        jurusan = j;
+        nim = ni;
+    }
+
+    string getNama() {
+        return nama;
+    }
+
+    int getUmur() {
+        return umur;
+    }
+
+    string getJurusan() {
+        return jurusan;
+    }
+
+    string getNim() {
+        return nim;
+    }
+
+    void setNama(string n) {
+        nama = n;
+    }
+
+    void setUmur(int u) {
+        umur = u;
+    }
+
+    void setJurusan(string j) {
+        jurusan = j;
+    }
+
+    void setNim(string ni) {
+        nim = ni;
+    }
+
+    void tampilkanBiodata() {
+        cout << "Nama: " << nama << endl;
+        cout << "Umur: " << umur << endl;
+        cout << "Jurusan: " << jurusan << endl;
+        cout << "NIM: " << nim << endl;
+    }
+};
+
+int main() {
+    Mahasiswa mhs;
+    int choice;
+    char repeat;
+
+    while (true) {
+        cout << "\n===== Program OOP =====\n";
+        cout << "1. Mendeklarasikan Objek\n";
+        cout << "2. Menampilkan Objek\n";
+        cout << "3. Merubah Nilai Objek\n";
+        cout << "4. Menghapus Objek\n";
+        cout << "5. Keluar Dari Program\n";
+        cout << "Masukkan Pilihan Berupa Angka (1/2/3/4/5): ";
+        cin >> choice;
+
+        if (choice == 1) {
+            string nama;
+            int umur;
+            string jurusan;
+            string nim;
+
+            cout << "Masukkan Nama: ";
+            cin >> nama;
+            cout << "Masukkan Umur: ";
+            cin >> umur;
+
+            cout << "Masukkan Jurusan: ";
+            cin >> jurusan;
+            cout << "Masukkan NIM: ";
+            cin >> nim;
+
+            mhs.setNama(nama);
+            mhs.setUmur(umur);
+            mhs.setJurusan(jurusan);
+            mhs.setNim(nim);
+            
+        } else if (choice == 2) {
+            cout << "\nBiodata Mahasiswa:\n";
+            mhs.tampilkanBiodata();
+        } else if (choice == 3) {
+            int subChoice;
+            cout << "Pilih nilai yang ingin diubah:\n";
+            cout << "1. Nama\n";
+            cout << "2. Umur\n";
+            cout << "3. Jurusan\n";
+            cout << "4. NIM\n";
+            cout << "Masukkan pilihan (1/2/3/4): ";
+            cin >> subChoice;
+
+            if (subChoice == 1) {
+                string nama;
+                cout << "Masukkan Nama Baru: ";
+                cin >> nama;
+                mhs.setNama(nama);
+            } else if (subChoice == 2) {
+                int umur;
+                cout << "Masukkan Umur Baru: ";
+                cin >> umur;
+
+                mhs.setUmur(umur);
+            } else if (subChoice == 3) {
+                string jurusan;
+                cout << "Masukkan Jurusan Baru: ";
+               cin >> jurusan;
+                mhs.setJurusan(jurusan);
+            } else if (subChoice == 4) {
+                string nim;
+                cout << "Masukkan NIM Baru: ";
+                cin >> nim;
+                mhs.setNim(nim);
+            } else {
+                cout << "Pilihan tidak valid!\n";
+            }
+        } else if (choice == 4) {
+            mhs = Mahasiswa();
+            cout << "Objek berhasil dihapus!\n";
+        } else if (choice == 5) {
+            cout << "Keluar dari program.\n";
+            break;
+        } else {
+            cout << "Pilihan tidak valid!\n";
+        }
+
+    }
+
+    return 0;
+}
+
