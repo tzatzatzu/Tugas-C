@@ -1,0 +1,103 @@
+
+#include <stdio.h>
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+#define total_index 10
+#define TRUE 1
+#define FALSE 0
+
+typedef struct
+{
+  string username;
+  string email;
+  string kata_kunci;
+}data_users;
+    
+data_users g_struct_data[total_index] = {
+/* username              | email        | kata_kunci */
+{ "email1@example.com", "administrator1",  "12345"  }, //Index 0
+{ "email2@example.com", "administrator2",  "12345"  }, //Index 1
+{ "email3@example.com", "administrator3",  "12345"  }, //Index 2
+{ "email4@example.com", "administrator4",  "12345"  }, //Index 3
+{ "email5@example.com", "administrator5",  "12345"  }, //Index 4
+{ "email6@example.com", "administrator6",  "12345"  }, //Index 5
+{ "email7@example.com", "administrator7",  "12345"  }, //Index 6
+{ "email8@example.com", "administrator8",  "12345"  }, //Index 7
+{ "email9@example.com", "administrator9",  "12345"  }, //Index 8
+{ "email10@example.com", "administrator10", "12345" },//Index 9
+};
+
+
+int main()
+{
+    cout<<"======================"<<endl;
+    cout<<"|Muhammad Naufal Aden |"<<endl;
+    cout<<"======================="<<endl;
+    cout<<"|        Bekasi       |"<<endl;
+    cout<<"======================="<<endl;
+    cout<<"|  Basic Login System |"<<endl;
+    cout<<"======================="<<endl;
+
+    string username_email_klien;
+    string sandi_klien;
+    string status_inputan;
+    int status_sambutan;
+    int cek_putaran;
+    int keamanan_login;
+    
+    keamanan_login = 0;
+    status_sambutan = FALSE;
+    
+    while(keamanan_login < 5)
+    {
+        cout<<"Input username/email anda; "<<endl;
+        cin>>username_email_klien;
+        cout<<"Input sandi anda; "<<endl;
+        cin>>sandi_klien;
+
+    
+        for(cek_putaran = 0 ;cek_putaran < total_index ; cek_putaran++)
+        {
+            
+            if(((username_email_klien == g_struct_data[cek_putaran].username)
+            ||(username_email_klien == g_struct_data[cek_putaran].email))
+            &&(sandi_klien == g_struct_data[cek_putaran].kata_kunci))
+            {
+                status_inputan = "login berhasil";
+                cout<<status_inputan<<endl;
+                status_sambutan = TRUE;
+                
+                break;
+            }
+            else if(cek_putaran >= 9)
+            {
+                status_inputan = "data yang terinput salah. Silahkan coba lagi";
+                cout<<status_inputan<<endl;
+            }
+            else
+            {
+                ;//do nothing
+            }
+        }
+        
+        keamanan_login++;
+        if(status_sambutan == TRUE)
+        {
+            break;
+        }
+        
+    }
+    
+    if(status_sambutan == TRUE)
+    {
+      cout<<"SELAMAT DATANG!"<<endl;
+    }
+    else
+    {
+        cout<<"IMPOSTOR!!"<<endl;
+    }
+    return 0;
+}
+
